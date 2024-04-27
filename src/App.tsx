@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import "./App.css";
 
 export const App: FC = () => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<unknown>();
   useEffect(() => {
     fetch("/api/items")
       .then((res) => res.json())
