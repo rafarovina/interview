@@ -5,12 +5,16 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   server: {
+    port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
+        target: "http://localhost:3001",
         changeOrigin: false,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => {
+          console.log("path", path)
+          return path.replace(/^\/api/, "")
+        },
       },
     },
   },
